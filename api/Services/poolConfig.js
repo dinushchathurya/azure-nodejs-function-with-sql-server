@@ -17,7 +17,7 @@ const config = {
     }
 }
 
-const pool = new sql.ConnectionPool(config).connect
+const poolPromise = new sql.ConnectionPool(config).connect
   .then((pool) => {
     console.log("Successfully connected to MSSQL Server".green.underline.bold);
     return pool;
@@ -27,6 +27,6 @@ const pool = new sql.ConnectionPool(config).connect
   );
 
 module.exports = {
-    sql,
-    pool
-}
+  sql,
+  poolPromise,
+};
