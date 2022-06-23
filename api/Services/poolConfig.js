@@ -12,12 +12,12 @@ const config = {
         idleTimeoutMillis: 30000
     },
     options: {
-        encrypt: true,
+        encrypt: false,
         trustedServerCertificate: false
     }
 }
 
-const poolPromise = new sql.ConnectionPool(config).connect
+const poolPromise = new sql.ConnectionPool(config).connect()
   .then((pool) => {
     console.log("Successfully connected to MSSQL Server".green.underline.bold);
     return pool;
